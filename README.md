@@ -6,6 +6,8 @@
 
 [Challenge 3 - Scales](https://github.com/izanbf1803/tuenti8/tree/master/03)
 
+[Challenge 4 - Brave Knight](https://github.com/izanbf1803/tuenti8/tree/master/04)
+
 [Challenge 5 - DNA Splicer](https://github.com/izanbf1803/tuenti8/tree/master/05)
 
 [Challenge 6 - Button Hero](https://github.com/izanbf1803/tuenti8/tree/master/06)
