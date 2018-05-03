@@ -20,7 +20,7 @@
 
 [Challenge 10 - Dance](https://github.com/izanbf1803/tuenti8/tree/master/10)
 
-[Challenge 11 - Lasers](https://github.com/izanbf1803/tuenti8/tree/master/11)
+[Challenge 11 - Lasers](https://github.com/izanbf1803/tuenti8/tree/master/11%20(W))
 
 [Challenge 12 - Victoria's Secret](https://github.com/izanbf1803/tuenti8/tree/master/12)
 
