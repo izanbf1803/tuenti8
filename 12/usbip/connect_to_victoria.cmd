@@ -1,0 +1,1 @@
+usbip.exe -D -l 52.49.91.111 && usbip.exe -D -a 52.49.91.111 8-tuenti

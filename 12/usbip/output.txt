@@ -1,0 +1,22 @@
+usbip for windows ($Id$)
+
+usbip dbg: usbip_network.c: 268 (tcp_connect ) trying 52.49.91.111 port 3240
+
+usbip dbg: usbip_network.c: 288 (tcp_connect ) connected to 52.49.91.111:3240
+- 52.49.91.111
+usbip dbg:       usbip.c: 424 (query_exported_devices) exportable 1 devices
+8-tuenti: unknown vendor : unknown product (413c:2003)
+        : /tuenti/challenge/8/victorias/secret
+        : (Defined at Interface level) (00/00/00)
+
+usbip for windows ($Id$)
+
+usbip dbg: usbip_network.c: 268 (tcp_connect ) trying 52.49.91.111 port 3240
+
+usbip dbg: usbip_network.c: 288 (tcp_connect ) connected to 52.49.91.111:3240
+usbip dbg:       usbip.c: 139 (query_interface0) exportable 1 devices
+usbip dbg:       usbip.c: 156 (query_interface0) 8-tuenti: unknown vendor : unknown product (413c:2003)
+usbip dbg:       usbip.c: 157 (query_interface0)         : /tuenti/challenge/8/victorias/secret
+usbip dbg:       usbip.c: 158 (query_interface0)         : (Defined at Interface level) (00/00/00)
+usbip dbg:       usbip.c: 181 (query_interface0)
+*** ERROR: cannot find device
