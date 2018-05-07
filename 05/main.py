@@ -20,7 +20,7 @@ sock.connect(addr)
 
 recive()
 recive()
-send("TEST\n")
+send("SUBMIT\n")
 while True:
 	recive()
 	chains = recive()

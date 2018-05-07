@@ -51,51 +51,66 @@ struct chain_sort {
 	}
 };
 
-V<int> in_sequence(const map<int,int> indices, const V<string>& chains, int n)
+
+bool bt(const V<string>& chains, int n, const string& prefix, set<int>& indices)
 {
-	V<int> sq;
 	for (int i = 0; i < n; ++i) {
-		V<int> perm;
-		for (int j = 0; j < n; ++j) {
-			if (i != j) perm.push_back(j);
+		if (indices.count(i) == 0) {
+			const string& longest  = prefix.size() >  chains[i].size() ? prefix : chains[i];
+			const string& shortest = prefix.size() <= chains[i].size() ? prefix : chains[i];
+
+			if (longest.find(shortest) == 0) {
+				indices.insert(i);
+				string sufix = longest.substr(shortest.size());
+				if (sufix.size() == 0 or bt(chains, n, sufix, indices)) return true;
+				indices.erase(i);
+			}
 		}
-		do {
-			string chain = "";
-			for (int k : perm) {
-				chain += chains[k];
-			}
-			if (chain.find(chains[i]) != string::npos) {
-				sq.push_back(indices.at(i));
-				break;
-			}
-		} while (next_permutation(perm.begin(), perm.end()));
 	}
-	sort(sq.begin(), sq.end());
-	return sq;
+
+	return false;
+}
+
+set<int> in_sequence(const V<string>& chains, int n)
+{
+	for (int i = 0; i < n; ++i) {
+		set<int> indices = { i };
+		if (bt(chains, n, chains[i], indices)) {
+			return indices;
+		}
+	}
+	return {};
 }
 
 int main(int argc, char** argv)
 {
-    ios::sync_with_stdio(0);
-    int n = argc-1;
-    V<string> chains(n);
-    map<string,int> str_indices;
-    map<int,int> indices;
-    for (int i = 0; i < n; ++i) {
-    	chains[i] = argv[i+1]; 
-    	str_indices[chains[i]] = i+1;
-    }
-    sort(chains.begin(), chains.end(), chain_sort());
-    for (int i = 0; i < n; ++i) {
-    	indices[i] = str_indices[chains[i]];
-    }
-    // cerr << chains << endl << in_sequence(indices, chains, n) << endl;
-    V<int> sq = in_sequence(indices, chains, n);
-    if (sq.size() > 0) {
-	    cout << sq[0];
-	    for (int i = 1; i < sq.size(); ++i) {
-	    	cout << ',' << sq[i];
-	    }
-	    cout << endl;
+	ios::sync_with_stdio(0);
+	int n = argc-1;
+	V<string> chains(n);
+	map<string,int> str_indices;
+	map<int,int> real_indices;
+	for (int i = 0; i < n; ++i) {
+		chains[i] = argv[i+1]; 
+		str_indices[chains[i]] = i+1;
+	}
+	sort(chains.begin(), chains.end(), chain_sort());
+	for (int i = 0; i < n; ++i) {
+		real_indices[i] = str_indices[chains[i]];
+	}
+	set<int> sq = in_sequence(chains, n);
+	if (not sq.empty()) {
+		V<int> result;
+		for (int k : sq) {
+			result.push_back(real_indices[k]);
+		}
+		sort(result.begin(), result.end());
+		for (int i = 0; i < result.size(); ++i) {
+			if (i > 0) cout << ',';
+			cout << result[i];
+		}
+		cout << endl;
+	}
+	else {
+		cout << "ERR" << endl;
 	}
 }
